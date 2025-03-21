@@ -60,7 +60,7 @@ function loadBackend(app){
                 console.error(`ÈRROR: ${err}`);
             }else{
                 if(numRemoved >= 1){
-                    response.sendStatus(200);
+                    response.sendStatus(210);
                 }else{
                     response.sendStatus(404);
                 }
