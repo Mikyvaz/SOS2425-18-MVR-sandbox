@@ -1,0 +1,15 @@
+{
+	"id": "af7b620c-66e6-4791-8b54-f60aab05f7d1",
+	"name": "online",
+	"values": [
+		{
+			"key": "BASE_URL",
+			"value": "https://sos2425-00-pfm-sandbox.onrender.com",
+			"type": "default",
+			"enabled": true
+		}
+	],
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2025-03-21T11:13:17.894Z",
+	"_postman_exported_using": "Postman/11.37.5-250320-2336"
+}
