@@ -48,7 +48,28 @@ function loadBackend(app){
     
         response.sendStatus(201);
     });
-        
+   
+    app.delete(BASE_API+"/contacts/:name",(request,response)=>{
+    
+        let name = request.params.name;
+        console.log(`DELETE to /contacts/${name}`);
+            
+        db.remove({ "name" : name},{},(err,numRemoved)=>{
+            if(err){
+                response.status(500).send("Error code 01 (please contact admin)");                
+                console.error(`ÈRROR: ${err}`);
+            }else{
+                if(numRemoved >= 1){
+                    response.sendStatus(200);
+                }else{
+                    response.sendStatus(404);
+                }
+            }
+        });
+    
+    });
+   
+
 }
 
 
