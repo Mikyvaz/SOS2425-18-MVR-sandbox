@@ -1,6 +1,11 @@
+import dataStore from "nedb";
+
+
 const BASE_API = "/api/v1";
 
-let contacts = [
+let db = new dataStore();
+
+let initialContacts = [
     {
         name: "peter",
         phone: 123456
@@ -11,10 +16,24 @@ let contacts = [
     }
 ];
 
+
+db.find({},(err,contacts)=>{
+    if (contacts.length < 1){
+        db.insert(initialContacts);
+    }
+});
+
 function loadBackend(app){
     app.get(BASE_API+"/contacts",(request,response)=>{
         console.log("New GET to /contacts");
-        response.send(JSON.stringify(contacts,null,2));
+                
+        db.find({},(err,contacts)=>{
+            response.send(JSON.stringify(contacts.map((c)=>{
+                delete c._id;
+                return c;
+            }),null,2));
+        });
+
     });
     
     
@@ -25,7 +44,7 @@ function loadBackend(app){
     
         let newContact = request.body;
         
-        contacts.push(newContact);
+        db.insert(newContact);
     
         response.sendStatus(201);
     });
