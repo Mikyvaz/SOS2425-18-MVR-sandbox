@@ -40,7 +40,7 @@ function loadBackend(app){
     app.post(BASE_API+"/contacts",(request,response)=>{
     
         console.log("POST to /contacts");
-        console.log(`<${request.body}>`);
+        console.log(`<${JSON.stringify(request.body,null,2)}>`);
     
         let newContact = request.body;
         
