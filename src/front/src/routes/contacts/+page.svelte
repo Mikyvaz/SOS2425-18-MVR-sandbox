@@ -1,8 +1,17 @@
 
 <script>
 // @ts-nocheck
-    let API = "http://localhost:16078/api/v1/contacts";
+    import { dev } from "$app/environment"; 
+
+    let DEVEL_HOST = "http://localhost:16078";
+
+    let API = "/api/v1/contacts";
+    
+    if(dev)
+        API = DEVEL_HOST + API;
+
     import { onMount } from "svelte";
+    import { Button, Table } from '@sveltestrap/sveltestrap';
 
     let contacts = [];
     let result = "";
@@ -33,7 +42,7 @@
 </script>
 
 <h2>Contact List</h2>
-<table>
+<Table>
     <thead>
         <tr>
             <th>Name</th>
@@ -57,4 +66,7 @@
             </tr>
         {/each}
     </tbody>
-</table>
+</Table>
+
+
+<Button color="secondary">Primary</Button>
