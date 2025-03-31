@@ -43,8 +43,6 @@
         try {
             const res = await fetch(API+"/"+name,{method:"DELETE"});
   
-            const data = await res.json();
-            result = JSON.stringify(data,null,2);
             const status = await res.status;
             resultStatus = status;
 
@@ -133,7 +131,7 @@
                     {contact.phone}
                 </td>
                 <td>
-                    <Button color="danger" on:click={deleteContact(contact.name)}>Delete</Button>
+                    <Button color="danger" on:click={() => {deleteContact(contact.name)}}>Delete</Button>
 
                 </td>
 
