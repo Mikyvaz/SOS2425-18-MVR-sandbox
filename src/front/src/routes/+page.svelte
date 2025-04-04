@@ -1,2 +1,5 @@
+<svelte:head>
+    <title>Contact Manager</title>
+</svelte:head>
 
-Mi primera pagina Svelte desarrollada con Nodejs (v3)
+Welcome to the contact Manager v1
