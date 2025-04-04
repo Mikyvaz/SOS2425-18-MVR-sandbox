@@ -1,5 +1,5 @@
 <svelte:head>
-    <title>Contact list</title>
+    <title>YYYYY</title>
 </svelte:head>
 <script>
 // @ts-nocheck
